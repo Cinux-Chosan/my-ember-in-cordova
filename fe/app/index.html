@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Fe</title>
+  <meta name="description" content="">
+  <!-- framework7 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> {{content-for "head"}}
+
+  <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link rel="stylesheet" href="{{rootURL}}assets/fe.css">
+
+  {{content-for "head-footer"}}
+
+</head>
+
+<body>
+
+  {{content-for "body"}}
+
+  <script src="cordova.js"></script>
+  <script src="cordova_assets/js/myapp.js"></script>
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/fe.js"></script>
+
+  {{content-for "body-footer"}}
+
+</body>
+
+</html>
