@@ -8,8 +8,6 @@ var runningTests = false;
 (function (global) {
   'use strict';
 
-  var heimdall = global.heimdall;
-
   function dict() {
     var obj = Object.create(null);
     obj['__'] = undefined;
@@ -51,7 +49,9 @@ var runningTests = false;
           }
         }
       }
-    }
+    },
+    // Option to enable or disable the generation of default exports
+    makeDefaultExport: true
   };
 
   var registry = dict();
@@ -101,6 +101,7 @@ var runningTests = false;
       return this.module.exports;
     }
 
+
     if (loader.wrapModules) {
       this.callback = loader.wrapModules(this.id, this.callback);
     }
@@ -114,7 +115,9 @@ var runningTests = false;
     if (!(this.hasExportsAsDep && result === undefined)) {
       this.module.exports = result;
     }
-    this.makeDefaultExport();
+    if (loader.makeDefaultExport) {
+      this.makeDefaultExport();
+    }
     return this.module.exports;
   };
 
@@ -271,6 +274,7 @@ var runningTests = false;
     if (child.charAt(0) !== '.') {
       return child;
     }
+
 
     var parts = child.split('/');
     var nameParts = id.split('/');

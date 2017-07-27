@@ -22,5 +22,8 @@
             "android",
             "browser"
         ]
+    },
+    "devDependencies": {
+        "ember-cli-sass": "^7.0.0"
     }
 }
